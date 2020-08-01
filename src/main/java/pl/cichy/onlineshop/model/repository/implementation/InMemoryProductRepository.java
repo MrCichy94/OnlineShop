@@ -6,13 +6,15 @@ import pl.cichy.onlineshop.exception.ProductNotFoundException;
 import pl.cichy.onlineshop.model.Product;
 import pl.cichy.onlineshop.model.repository.ProductRepository;
 
-import java.awt.print.Pageable;
+import org.springframework.data.domain.Pageable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 @Repository
 public class InMemoryProductRepository implements ProductRepository {
+
+    private ProductRepository productRepository;
 
     private List<Product> listOfProducts = new ArrayList<Product>();
 
@@ -23,11 +25,13 @@ public class InMemoryProductRepository implements ProductRepository {
         iphone.setCategory("Smartfon");
         iphone.setManufacturer("Apple");
         iphone.setUnitsInStock(1000);
+
         Product laptop_dell = new Product("P1235","Dell Inspiron", new BigDecimal(700));
         laptop_dell.setDescription("Dell Inspiron, 14-calowy laptop (czarny)z procesorem Intel Core 3. generacji, do tego 2gb pamięci ram DDR3!");
         laptop_dell.setCategory("Laptop");
         laptop_dell.setManufacturer("Dell");
         laptop_dell.setUnitsInStock(1000);
+
         Product tablet_Nexus = new Product("P1236","Nexus 7", new BigDecimal(300));
         tablet_Nexus.setDescription("Google Nexus 7 jest najlżejszym 7-calowym tabletem z 4-rdzeniowym procesorem Qualcomm Snapdragon™ S4 Pro");
         tablet_Nexus.setCategory("Tablet");
@@ -44,16 +48,51 @@ public class InMemoryProductRepository implements ProductRepository {
     }
 
     public Product getProductById(String productId) {
+
         Product productById = null;
+
         for(Product product : listOfProducts) {
-            if(product!=null && product.getProductId()!=null && product.getProductId().equals(productId)){
+            if(product != null && product.getProductId() != null && product.getProductId().equals(productId)){
                 productById = product;
                 break;
             }
         }
+
         if(productById == null){
             throw new ProductNotFoundException(productId);
         }
+
         return productById;
     }
+
+    public List<Product> getProductsByCategory(String category) {
+
+        List<Product> productsByCategory = new ArrayList<Product>();
+
+        for(Product product: listOfProducts) {
+            if(category.equalsIgnoreCase(product.getCategory())){
+                productsByCategory.add(product);
+            }
+        }
+
+        return productsByCategory;
+    }
+
+    public List<Product> getProductsByManufacturer(String manufacturer) {
+
+        List<Product> productsByManufacturer = new ArrayList<Product>();
+
+        for(Product product: listOfProducts) {
+            if(manufacturer.equalsIgnoreCase(product.getManufacturer())){
+                productsByManufacturer.add(product);
+            }
+        }
+
+        return productsByManufacturer;
+    }
+
+    public void addProduct(Product product) {
+        listOfProducts.add(product);
+    }
+
 }

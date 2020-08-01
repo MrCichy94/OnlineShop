@@ -1,14 +1,11 @@
-package pl.cichy.onlineshop.model.repository;
+package pl.cichy.onlineshop.service;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Service;
 import pl.cichy.onlineshop.model.Product;
 
-import org.springframework.data.domain.Pageable;
 import java.util.List;
 
-public interface ProductRepository {
+public interface ProductService {
 
     List <Product> readAllProducts();
 
@@ -19,6 +16,5 @@ public interface ProductRepository {
     List <Product> getProductsByManufacturer(String manufacturer);
 
     void addProduct(Product product);
-
 
 }
