@@ -1,5 +1,6 @@
 package pl.cichy.onlineshop.model.repository.implementation;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Repository;
 import pl.cichy.onlineshop.exception.ProductNotFoundException;
@@ -91,8 +92,8 @@ public class InMemoryProductRepository implements ProductRepository {
         return productsByManufacturer;
     }
 
-    public void addProduct(Product product) {
+    public Product addProduct(Product product) {
         listOfProducts.add(product);
+        return product;
     }
-
 }

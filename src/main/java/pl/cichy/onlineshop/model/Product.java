@@ -75,6 +75,7 @@ public class Product implements Serializable {
         return true;
     }
 
+
     @XmlTransient
     public MultipartFile getProductImage() {
         return productImage;

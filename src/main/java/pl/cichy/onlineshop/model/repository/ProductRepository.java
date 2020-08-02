@@ -18,7 +18,5 @@ public interface ProductRepository {
 
     List <Product> getProductsByManufacturer(String manufacturer);
 
-    void addProduct(Product product);
-
-
+    Product addProduct(Product product);
 }
