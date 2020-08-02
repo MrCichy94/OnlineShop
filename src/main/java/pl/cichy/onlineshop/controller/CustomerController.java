@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import pl.cichy.onlineshop.model.Customer;
 import pl.cichy.onlineshop.service.CustomerService;
-import pl.cichy.onlineshop.service.ProductService;
 
 import java.util.List;
 

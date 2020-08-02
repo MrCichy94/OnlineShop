@@ -4,18 +4,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.util.StringUtils;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 import pl.cichy.onlineshop.exception.NoProductsFoundUnderCategoryException;
 import pl.cichy.onlineshop.model.Product;
 import pl.cichy.onlineshop.service.ProductService;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.io.File;
 import java.net.URI;
 import java.util.List;
 
