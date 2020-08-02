@@ -44,5 +44,6 @@ public class ProductServiceImpl implements ProductService {
     public Product addProduct(Product product) {
         productRepository.addProduct(product);
         return product;
+        // TODO Auto-generated method stub, remember about validation!
     }
 }
