@@ -44,6 +44,7 @@ public class Product implements Serializable {
     private long unitsInOrder;
     private boolean discontinued;
     private String condition;
+    private String image;
 
     @JsonIgnore
     private MultipartFile productImage;

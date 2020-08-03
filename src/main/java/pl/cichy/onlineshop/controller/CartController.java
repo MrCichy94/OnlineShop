@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pl.cichy.onlineshop.model.Cart;
 import pl.cichy.onlineshop.service.CartService;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Controller
 @RequestMapping("/cart")
 public class CartController {
@@ -25,5 +27,10 @@ public class CartController {
     ResponseEntity <Cart> readCart(@PathVariable("cartId") String cartId) {
         logger.info("Cart found");
         return ResponseEntity.ok(cartService.read(cartId));
+    }
+
+    @RequestMapping
+    public String get(HttpServletRequest request) {
+        return "redirect:/cart/" + request.getSession(true).getId();
     }
 }

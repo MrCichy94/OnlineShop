@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online-Shop: Products</title>
+    <link rel="stylesheet" href="css/awsm.css">
+    <link rel="stylesheet" href="css/extansion.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+    <script src="all.js"></script>
+</head>
+
+<body>
+<main>
+    <header>
+
+            <h1>Emerald Royal Cloth</h1>
+            <h6>"Elegancja to jedyne piękno, które nigdy nie zniknie" - Audrey Hepburn</h6>
+
+            <div>
+                <h5 class="menu">PRODUKTY <i class="fa fa-crosshairs"></i></h5>
+            </div>
+            <div>
+                <h5 class="menu">KONTAKT <i class="fa fa-briefcase"></i></h5>
+            </div>
+            <div>
+                <h5 class="menu">O NAS <i class="fa fa-coffee"></i></h5>
+            </div>
+            <div>
+                <h5 class="menu">KOSZYK <i class="fa fa-shopping-cart"></i></h5>
+            </div>
+            <div style="clear:both"></div>
+
+
+    </header>
+
+        <div class="row">
+
+
+            <div id="content">
+
+                <h1 th:if="${message != null}" th:text="${message}"></h1>
+
+                <!--/*@thymesVar id="projects" type="pl.cichy.model.Product"*/-->
+                <fieldset th:each="product : ${products}">
+                    <dt th:text="${product.getName()}">...</dt>
+                    <div class="photo">
+                        <figure>
+                            <a href="#"><img th:src="|${product.getImage()}|" alt="img"></a>
+                            <figcaption th:text="|Nazwa: ${product.getName()} |"></figcaption>
+                        </figure>
+                    </div>
+                    <dd>
+
+                        <p th:text="|Nazwa: ${product.getName()}|" ></p>
+                        <p th:text="|Producent: ${product.getManufacturer()}|"></p>
+                        <p th:text="|Kategoria: ${product.getCategory()}|"></p>
+                        <p th:text="|Cena: ${product.getUnitPrice()}|"></p>
+                        <p th:text="|Dostępne sztuki: ${product.getUnitsInStock()}|"></p>
+                        <p th:text="|Stan: ${product.getCondition()}|"></p>
+                        <p th:text="|Opis: ${product.getDescription()}|"></p>
+
+                    </dd>
+
+                    <div>
+                        <form method="get" th:action="@{/products/product/{productId}(productId=${product.productId})}">
+                            <button type="submit">
+                                Szczegóły -> <i class="fa fa-suitcase"></i>
+                            </button>
+                        </form>
+
+                        <form method="post" th:action="@{/rest/cart/add/{productId}(productId=${product.productId})}">
+                            <button type="submit">
+                                Dodaj do koszyka -> <i class="fa fa-shopping-cart"></i>
+                            </button>
+                        </form>
+
+                        <a href="/cart">
+                        <span class="glyphicon-hand-right glyphicon"></span> Koszyk
+                        </a>
+
+
+                    </div>
+
+
+                </fieldset>
+
+            </div>
+
+            <div style="clear:both"></div>
+
+        </div>
+
+
+        <footer>
+
+            <h6>Created and designed by Przemysław Cichy &copy; All rights reserved.</h6>
+
+        </footer>
+
+
+
+
+
+</main>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+<script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>

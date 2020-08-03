@@ -4,11 +4,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.cichy.onlineshop.exception.NoProductsFoundUnderCategoryException;
 import pl.cichy.onlineshop.model.Product;
 import pl.cichy.onlineshop.service.ProductService;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
@@ -24,10 +26,16 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @GetMapping(params = {"!sort", "!page", "!size"})
+    //@GetMapping(params = {"!sort", "!page", "!size"})
     ResponseEntity <List<Product>> readAllProducts() {
         logger.info("Custom pageable");
         return ResponseEntity.ok(productService.readAllProducts());
+    }
+
+    @GetMapping
+    public String list(Model model) {
+        model.addAttribute("products", productService.readAllProducts());
+        return "products";
     }
 
     @GetMapping("category/{category}")
@@ -70,6 +78,8 @@ public class ProductController {
         logger.warn("Dodano nowy produkt!");
         return ResponseEntity.created(URI.create("/" + result.getProductId())).body(result);
     }
+
+
 
 
 }

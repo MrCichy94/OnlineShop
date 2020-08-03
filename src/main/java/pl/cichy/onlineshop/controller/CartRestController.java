@@ -56,7 +56,7 @@ public class CartRestController {
         cartService.delete(cartId);
     }
 
-    @RequestMapping(value = "/add/{productId}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/add/{productId}", method = RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void addItem(@PathVariable String productId, HttpServletRequest request) {
         String sessionId = request.getSession(true).getId();

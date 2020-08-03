@@ -26,18 +26,21 @@ public class InMemoryProductRepository implements ProductRepository {
         iphone.setCategory("Smartfon");
         iphone.setManufacturer("Apple");
         iphone.setUnitsInStock(1000);
+        iphone.setImage("images/photo1.jpg");
 
         Product laptop_dell = new Product("P1235","Dell Inspiron", new BigDecimal(700));
         laptop_dell.setDescription("Dell Inspiron, 14-calowy laptop (czarny)z procesorem Intel Core 3. generacji, do tego 2gb pamięci ram DDR3!");
         laptop_dell.setCategory("Laptop");
         laptop_dell.setManufacturer("Dell");
         laptop_dell.setUnitsInStock(1000);
+        laptop_dell.setImage("images/photo2.jpg");
 
         Product tablet_Nexus = new Product("P1236","Nexus 7", new BigDecimal(300));
         tablet_Nexus.setDescription("Google Nexus 7 jest najlżejszym 7-calowym tabletem z 4-rdzeniowym procesorem Qualcomm Snapdragon™ S4 Pro");
         tablet_Nexus.setCategory("Tablet");
         tablet_Nexus.setManufacturer("Google");
         tablet_Nexus.setUnitsInStock(1000);
+        tablet_Nexus.setImage("images/photo3.jpg");
 
         listOfProducts.add(iphone);
         listOfProducts.add(laptop_dell);

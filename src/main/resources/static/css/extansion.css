@@ -1,0 +1,13 @@
+.menu
+{
+    float: left;
+    text-align: center;
+    width: 25%;
+    height: auto;
+}
+
+.menu:hover
+{
+    background-color: #444444;
+    cursor: pointer;
+}
