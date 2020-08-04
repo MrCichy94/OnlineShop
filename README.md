@@ -8,7 +8,7 @@
 ![Index](./screens/work1.png)
 
 #### Main endpoint with products
-![Main endpoint with products](./screens/work1.png)
+![Main endpoint with products](./screens/work2.png)
 
 #### Cart endpoint
-![Cart endpoint](./screens/work1.png)
+![Cart endpoint](./screens/work3.png)
