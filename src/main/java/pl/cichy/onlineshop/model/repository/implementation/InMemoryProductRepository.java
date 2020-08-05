@@ -17,34 +17,34 @@ public class InMemoryProductRepository implements ProductRepository {
 
     private ProductRepository productRepository;
 
-    private List<Product> listOfProducts = new ArrayList<Product>();
+    private final List<Product> listOfProducts = new ArrayList<Product>();
 
     public InMemoryProductRepository() {
 
-        Product iphone = new Product("P1234","iPhone 5s", new BigDecimal(500));
-        iphone.setDescription("Apple iPhone 5s, smartfon z 4-calowym ekranem o rozdzielczości 640×1136 i 8-megapikselowym aparatem");
-        iphone.setCategory("Smartfon");
-        iphone.setManufacturer("Apple");
-        iphone.setUnitsInStock(1000);
-        iphone.setImage("images/photo1.jpg");
+        Product dreamer = new Product("P1234","Zestaw 'Dreamer'", new BigDecimal("129.99"));
+        dreamer.setDescription("Piękna i elegancka koszula męska, zdobiona czarnymi podszewkami kołnierzyka i mankietów, oraz czarnymi guzikami. W zestawie ze złotymi reniferami dodającymi smaku i kunsztu całości.");
+        dreamer.setCategory("Koszule męskie");
+        dreamer.setManufacturer("RafaellO");
+        dreamer.setUnitsInStock(10);
+        dreamer.setImage("images/photo1.jpg");
 
-        Product laptop_dell = new Product("P1235","Dell Inspiron", new BigDecimal(700));
-        laptop_dell.setDescription("Dell Inspiron, 14-calowy laptop (czarny)z procesorem Intel Core 3. generacji, do tego 2gb pamięci ram DDR3!");
-        laptop_dell.setCategory("Laptop");
-        laptop_dell.setManufacturer("Dell");
-        laptop_dell.setUnitsInStock(1000);
-        laptop_dell.setImage("images/photo2.jpg");
+        Product diana = new Product("P1235","Zestaw 'Diana'", new BigDecimal("149.99"));
+        diana.setDescription("Piękna i elegancka koszula damska, zdobiona czarnymi podszewkami kołnierzyka i mankietów, oraz czarnymi guzikami. W zestawie z czarną kameą, a w niej mieniącym się diamentem.");
+        diana.setCategory("Koszule damskie");
+        diana.setManufacturer("RafaellO");
+        diana.setUnitsInStock(4);
+        diana.setImage("images/photo2.jpg");
 
-        Product tablet_Nexus = new Product("P1236","Nexus 7", new BigDecimal(300));
-        tablet_Nexus.setDescription("Google Nexus 7 jest najlżejszym 7-calowym tabletem z 4-rdzeniowym procesorem Qualcomm Snapdragon™ S4 Pro");
-        tablet_Nexus.setCategory("Tablet");
-        tablet_Nexus.setManufacturer("Google");
-        tablet_Nexus.setUnitsInStock(1000);
-        tablet_Nexus.setImage("images/photo3.jpg");
+        Product elizabeth = new Product("P1236","Zestaw 'Elizabeth'", new BigDecimal("139.99"));
+        elizabeth.setDescription("Piękna i elegancka koszula damska, zdobiona czarnymi podszewkami kołnierzyka i mankietów, oraz czarnymi guzikami. W zestawie z czarną kokardą wypełnioną królewską perłą.");
+        elizabeth.setCategory("Koszule damskie");
+        elizabeth.setManufacturer("RafaellO");
+        elizabeth.setUnitsInStock(6);
+        elizabeth.setImage("images/photo3.jpg");
 
-        listOfProducts.add(iphone);
-        listOfProducts.add(laptop_dell);
-        listOfProducts.add(tablet_Nexus);
+        listOfProducts.add(dreamer);
+        listOfProducts.add(diana);
+        listOfProducts.add(elizabeth);
     }
 
     public List <Product> readAllProducts() {

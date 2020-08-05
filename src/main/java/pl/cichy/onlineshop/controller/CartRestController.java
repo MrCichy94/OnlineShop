@@ -56,8 +56,8 @@ public class CartRestController {
         cartService.delete(cartId);
     }
 
-    //HERE WAS PUT METHOD
-    @RequestMapping(value = "/add/{productId}", method = RequestMethod.POST)
+    //HERE WAS PUT METHOD - changed to no-value
+    @RequestMapping(value = "/add/{productId}")
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void addItem(@PathVariable String productId, HttpServletRequest request) {
         String sessionId = request.getSession(true).getId();
@@ -104,3 +104,17 @@ public class CartRestController {
     @ResponseStatus(value = HttpStatus.BAD_REQUEST, reason = "Internal server error")
     public void handleServerErrors(Exception ex) { }
 }
+
+/*
+<tr th:each="item : ${cart.cartItems}">
+<td><p th:text="|Nazwa: ${item.value.getProduct().getName()}|" ></p> </td>
+<td><p th:text="|Nazwa: ${item.value.getProduct().getUnitPrice()}|" ></p> </td>
+<td><p th:text="|Nazwa: ${item.value.getQuantity()}|" ></p> </td>
+<td><p th:text="|Nazwa: ${item.value.getTotalPrice()}|" ></p> PLN</td>
+<td><a href="#" class="label label-danger" ng-click="removeFromCart(item.product.productId)">
+<span class="glyphicon glyphicon-remove"/></span> Usuń
+</a></td>
+</tr>
+
+<p th:text="|${cartId.getGrandTotal()}|" ></p>zł
+ */

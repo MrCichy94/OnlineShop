@@ -2,15 +2,20 @@ package pl.cichy.onlineshop.model.repository.implementation;
 
 import org.springframework.stereotype.Repository;
 import pl.cichy.onlineshop.model.Cart;
+import pl.cichy.onlineshop.model.Product;
 import pl.cichy.onlineshop.model.repository.CartRepository;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Repository
 public class InMemoryCartRepository implements CartRepository {
 
     private final Map<String, Cart> listOfCarts;
+
+    private List<Product> listOfProductsInCart = new ArrayList<Product>();
 
     public InMemoryCartRepository() {
         listOfCarts = new HashMap<String, Cart>();
@@ -43,5 +48,10 @@ public class InMemoryCartRepository implements CartRepository {
         }
 
         listOfCarts.remove(cartId);
+    }
+
+    public List <Product> readProductInCart(String cartId) {
+        listOfProductsInCart = (List<Product>) listOfCarts.get(cartId).getCartItems();
+        return listOfProductsInCart;
     }
 }

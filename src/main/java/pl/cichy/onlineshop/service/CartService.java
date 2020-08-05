@@ -1,6 +1,9 @@
 package pl.cichy.onlineshop.service;
 
 import pl.cichy.onlineshop.model.Cart;
+import pl.cichy.onlineshop.model.Product;
+
+import java.util.List;
 
 public interface CartService {
 
@@ -11,5 +14,7 @@ public interface CartService {
     void update(String cartId, Cart cart);
 
     void delete(String cartId);
+
+    List <Product> readProductInCart(String cartId);
 
 }

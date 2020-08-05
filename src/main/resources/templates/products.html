@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online-Shop: Products</title>
     <link rel="stylesheet" href="css/awsm.css">
+    <link rel="stylesheet" href="css/buttons.css">
     <link rel="stylesheet" href="css/extansion.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
@@ -27,9 +28,13 @@
             <div>
                 <h5 class="menu">O NAS <i class="fa fa-coffee"></i></h5>
             </div>
-            <div>
-                <h5 class="menu">KOSZYK <i class="fa fa-shopping-cart"></i></h5>
-            </div>
+
+            <a th:href="@{/cart}" style="text-decoration: none">
+                <div>
+                    <h5 class="menu">KOSZYK <i class="fa fa-shopping-cart"></i></h5>
+                </div>
+            </a>
+
             <div style="clear:both"></div>
 
 
@@ -48,7 +53,7 @@
                     <div class="photo">
                         <figure>
                             <a href="#"><img th:src="|${product.getImage()}|" alt="img"></a>
-                            <figcaption th:text="|Nazwa: ${product.getName()} |"></figcaption>
+                            <figcaption th:text="|Zdjęcie: ${product.getName()} |"></figcaption>
                         </figure>
                     </div>
                     <dd>
@@ -56,28 +61,30 @@
                         <p th:text="|Nazwa: ${product.getName()}|" ></p>
                         <p th:text="|Producent: ${product.getManufacturer()}|"></p>
                         <p th:text="|Kategoria: ${product.getCategory()}|"></p>
-                        <p th:text="|Cena: ${product.getUnitPrice()}|"></p>
+                        <p th:text="|Cena: ${product.getUnitPrice()} zł|"></p>
                         <p th:text="|Dostępne sztuki: ${product.getUnitsInStock()}|"></p>
-                        <p th:text="|Stan: ${product.getCondition()}|"></p>
                         <p th:text="|Opis: ${product.getDescription()}|"></p>
 
                     </dd>
 
                     <div>
-                        <form method="get" th:action="@{/products/product/{productId}(productId=${product.productId})}">
-                            <button type="submit">
-                                Szczegóły -> <i class="fa fa-suitcase"></i>
-                            </button>
-                        </form>
 
-                        <form method="post" th:action="@{/rest/cart/add/{productId}(productId=${product.productId})}">
-                            <button type="submit">
-                                Dodaj do koszyka -> <i class="fa fa-shopping-cart"></i>
+                        <a th:href="@{/products/product/{productId}(productId=${product.productId})}" style="text-decoration: none">
+                            <button>
+                                <span>Szczegóły <i class="fa fa-suitcase"></i></span>
                             </button>
-                        </form>
+                        </a>
+
+                        <a th:href="@{/rest/cart/add/{productId}(productId=${product.productId})}" style="text-decoration: none">
+                            <button>
+                                <span>Dodaj do koszyka -> <i class="fa fa-shopping-cart"></i></span>
+                            </button>
+                        </a>
 
                         <a href="/cart">
-                        <span class="glyphicon-hand-right glyphicon"></span> Koszyk
+                            <button>
+                                <span>Koszyk <i class="fa fa-shopping-cart"></i> <i class="fa fa-dollar"></i></span>
+                            </button>
                         </a>
 
 

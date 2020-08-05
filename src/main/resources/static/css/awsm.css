@@ -71,7 +71,7 @@ nav a:visited{
     color:#fd9a49;
 }
 nav a:hover{
-    color:#75c53c;
+    color:#aa9090;
 }
 
 ul, ol{
@@ -236,7 +236,7 @@ article header h1 a:visited, article header h2 a:visited{
     color:#444444;
 }
 article header h1 a:visited:hover, article header h2 a:visited:hover{
-    color:#75c53c;
+    color: #aa9090;
 }
 article > footer{
     margin-top:1.5em;
@@ -244,16 +244,16 @@ article > footer{
 }
 
 a{
-    color:#fd9a49;
+    color:#ffffff;
 }
 a:visited{
-    color:#7b4a29;
+    color:#ffffff;
 }
 a:hover, a:active{
     outline-width:0;
 }
 a:hover{
-    color:#75c53c;
+    color:#ffffff;
 }
 a abbr{
     font-size:1em;

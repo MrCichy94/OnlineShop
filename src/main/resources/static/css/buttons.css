@@ -1,0 +1,36 @@
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-weight: bold;
+    line-height: 1.428571429;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    text-decoration: none;
+}
+
+.btn:focus {
+    outline: thin dotted #333;
+    outline-offset: -2px;
+}
+
+.btn:hover,
+.btn:focus {
+    color: #aa9090;
+    text-decoration: none;
+}
+
+.btn-primary {
+    color: #ffffff;
+    background-color: #681b00;
+    border-color: #f5f5f5;
+    text-decoration: none;
+}

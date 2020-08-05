@@ -29,6 +29,11 @@ public class CartItem implements Serializable {
         totalPrice = this.product.getUnitPrice().multiply(new BigDecimal(this.quantity));
     }
 
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+        this.updateTotalPrice();
+    }
+
     @Override
     public int hashCode() {
         final int prime = 311;

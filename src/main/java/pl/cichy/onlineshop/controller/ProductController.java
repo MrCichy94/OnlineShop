@@ -31,7 +31,7 @@ public class ProductController {
         logger.info("Custom pageable");
         return ResponseEntity.ok(productService.readAllProducts());
     }
-
+    //think about both!
     @GetMapping
     public String list(Model model) {
         model.addAttribute("products", productService.readAllProducts());

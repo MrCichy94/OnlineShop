@@ -1,6 +1,9 @@
 package pl.cichy.onlineshop.model.repository;
 
 import pl.cichy.onlineshop.model.Cart;
+import pl.cichy.onlineshop.model.Product;
+
+import java.util.List;
 
 public interface CartRepository {
 
@@ -11,5 +14,7 @@ public interface CartRepository {
     void update(String cartId, Cart cart);
 
     void delete(String cartId);
+
+    List <Product> readProductInCart(String cartId);
 
 }
