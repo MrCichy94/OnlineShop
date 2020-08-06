@@ -44,9 +44,7 @@
 
 
             <div id="content">
-
-                <h1 th:if="${message != null}" th:text="${message}"></h1>
-
+                
                 <!--/*@thymesVar id="projects" type="pl.cichy.model.Product"*/-->
                 <fieldset th:each="product : ${products}">
                     <dt th:text="${product.getName()}">...</dt>
@@ -81,7 +79,7 @@
                             </button>
                         </a>
 
-                        <a href="/cart">
+                        <a th:href="@{/cart}">
                             <button>
                                 <span>Koszyk <i class="fa fa-shopping-cart"></i> <i class="fa fa-dollar"></i></span>
                             </button>

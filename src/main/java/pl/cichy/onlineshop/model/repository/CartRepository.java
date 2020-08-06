@@ -15,6 +15,4 @@ public interface CartRepository {
 
     void delete(String cartId);
 
-    List <Product> readProductInCart(String cartId);
-
 }

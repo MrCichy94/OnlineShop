@@ -76,7 +76,7 @@ public class CartRestController {
         cartService.update(sessionId, cart);
     }
 
-    @RequestMapping(value = "/remove/{productId}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/remove/{productId}")
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void removeItem(@PathVariable String productId, HttpServletRequest request) {
         String sessionId = request.getSession(true).getId();
@@ -105,16 +105,3 @@ public class CartRestController {
     public void handleServerErrors(Exception ex) { }
 }
 
-/*
-<tr th:each="item : ${cart.cartItems}">
-<td><p th:text="|Nazwa: ${item.value.getProduct().getName()}|" ></p> </td>
-<td><p th:text="|Nazwa: ${item.value.getProduct().getUnitPrice()}|" ></p> </td>
-<td><p th:text="|Nazwa: ${item.value.getQuantity()}|" ></p> </td>
-<td><p th:text="|Nazwa: ${item.value.getTotalPrice()}|" ></p> PLN</td>
-<td><a href="#" class="label label-danger" ng-click="removeFromCart(item.product.productId)">
-<span class="glyphicon glyphicon-remove"/></span> Usuń
-</a></td>
-</tr>
-
-<p th:text="|${cartId.getGrandTotal()}|" ></p>zł
- */

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online-Shop: Products</title>
+    <title>Online-Shop: Your cart</title>
     <link rel="stylesheet" href="css/awsm.css">
     <link rel="stylesheet" href="css/buttons.css">
     <link rel="stylesheet" href="css/extansion.css">
@@ -39,9 +39,11 @@
                     <span th:text="|${item.value.getTotalPrice()}|"></span> zł
                 </p>
             </td>
-            <td><a href="#" class="label label-danger" ng-click="removeFromCart(item.product.productId)">
-                 <span class="glyphicon glyphicon-remove"/></span> Usuń
-            </a></td>
+            <td>
+                <a th:href="@{rest/cart/remove/{productId}(productId=${item.value.getProduct().getProductId()})}">
+                 <span>Usuń <i class="fa fa-remove"></i></span>
+                </a>
+            </td>
         </tr>
 
         <tr>
@@ -50,13 +52,32 @@
             <th>Łączna cena</th>
             <th>
                 <p>
-                    <span th:text="|${cart.getGrandTotal()}|"></span> zł
+                    <span th:text="|${cart.getGrandTotal()}|" ></span> zł
                 </p>
             </th>
             <th></th>
         </tr>
     </table>
     </fieldset>
+
+        <a href="/products" style="text-decoration: none">
+            <button>
+                <span><i class="fa fa-hand-o-left"></i> Powrót do zakupów </span>
+            </button>
+        </a>
+
+        <a href="/cart" style="text-decoration: none">
+            <button>
+                <span>Odśwież zawartość koszyka <i class="fa fa-refresh"></i></span>
+            </button>
+        </a>
+
+        <a href="/order" style="text-decoration: none">
+            <button>
+                <span>Zamów <i class="fa fa-shopping-cart"></i></span>
+            </button>
+        </a>
+
 </fieldset>
 </main>
 

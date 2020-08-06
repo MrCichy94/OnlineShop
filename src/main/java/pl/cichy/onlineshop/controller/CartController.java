@@ -33,8 +33,15 @@ public class CartController {
 
     @RequestMapping
     public String get(Model model, HttpServletRequest request) {
+
+        //this is prepered empty cart with sesionID vs null cart id exception by thymeleaf
         String sessionId = request.getSession(true).getId();
         Cart cart = cartService.read(sessionId);
+        if (cart == null) {
+            cart = cartService.create(new Cart(sessionId));
+        }
+        cartService.update(sessionId, cart);
+
         model.addAttribute("cart", cartService.read(sessionId));
         return "cart";
     }

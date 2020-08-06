@@ -27,6 +27,7 @@ public class Cart implements Serializable {
         this();
         this.cartId = cartId;
     }
+
     public void addCartItem(CartItem item) {
         String productId = item.getProduct().getProductId();
 

@@ -39,8 +39,4 @@ public class CartServiceImpl implements CartService {
         }
         return cart;
     }
-
-    public List<Product> readProductInCart(String cartId) {
-        return cartRepository.readProductInCart(cartId);
-    }
 }

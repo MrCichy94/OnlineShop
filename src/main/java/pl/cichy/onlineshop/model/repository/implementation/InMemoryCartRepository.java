@@ -15,8 +15,6 @@ public class InMemoryCartRepository implements CartRepository {
 
     private final Map<String, Cart> listOfCarts;
 
-    private List<Product> listOfProductsInCart = new ArrayList<Product>();
-
     public InMemoryCartRepository() {
         listOfCarts = new HashMap<String, Cart>();
     }
@@ -48,10 +46,5 @@ public class InMemoryCartRepository implements CartRepository {
         }
 
         listOfCarts.remove(cartId);
-    }
-
-    public List <Product> readProductInCart(String cartId) {
-        listOfProductsInCart = (List<Product>) listOfCarts.get(cartId).getCartItems();
-        return listOfProductsInCart;
     }
 }

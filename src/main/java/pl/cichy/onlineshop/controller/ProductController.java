@@ -7,7 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.cichy.onlineshop.exception.NoProductsFoundUnderCategoryException;
+import pl.cichy.onlineshop.model.Cart;
 import pl.cichy.onlineshop.model.Product;
+import pl.cichy.onlineshop.service.CartService;
 import pl.cichy.onlineshop.service.ProductService;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,9 +23,11 @@ public class ProductController {
 
     private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
     private final ProductService productService;
+    private final CartService cartService;
 
-    public ProductController(ProductService productService) {
+    public ProductController(final ProductService productService, final CartService cartService) {
         this.productService = productService;
+        this.cartService = cartService;
     }
 
     //@GetMapping(params = {"!sort", "!page", "!size"})
