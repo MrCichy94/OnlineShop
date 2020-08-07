@@ -58,7 +58,7 @@ public class CartRestController {
 
     //HERE WAS PUT METHOD - changed to no-value
     @GetMapping(value = "/add/{productId}")
-    @ResponseStatus(value = HttpStatus.NO_CONTENT)
+    @ResponseStatus(value = HttpStatus.RESET_CONTENT)
     public void addItem(@PathVariable String productId, HttpServletRequest request) {
         String sessionId = request.getSession(true).getId();
         Cart cart = cartService.read(sessionId);
@@ -77,7 +77,7 @@ public class CartRestController {
     }
 
     @GetMapping(value = "/remove/{productId}")
-    @ResponseStatus(value = HttpStatus.NO_CONTENT)
+    @ResponseStatus(value = HttpStatus.RESET_CONTENT)
     public void removeItem(@PathVariable String productId, HttpServletRequest request) {
         String sessionId = request.getSession(true).getId();
         Cart cart = cartService.read(sessionId);
