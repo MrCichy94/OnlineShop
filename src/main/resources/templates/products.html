@@ -46,49 +46,54 @@
             <div id="content">
                 
                 <!--/*@thymesVar id="projects" type="pl.cichy.model.Product"*/-->
-                <fieldset th:each="product : ${products}">
-                    <dt th:text="${product.getName()}">...</dt>
-                    <div class="photo">
-                        <figure>
-                            <a href="#"><img th:src="|${product.getImage()}|" alt="img"></a>
-                            <figcaption th:text="|Zdjęcie: ${product.getName()} |"></figcaption>
-                        </figure>
-                    </div>
-                    <dd>
+                <fieldset>
 
-                        <p th:text="|Nazwa: ${product.getName()}|" ></p>
-                        <p th:text="|Producent: ${product.getManufacturer()}|"></p>
-                        <p th:text="|Kategoria: ${product.getCategory()}|"></p>
-                        <p th:text="|Cena: ${product.getUnitPrice()} zł|"></p>
-                        <p th:text="|Dostępne sztuki: ${product.getUnitsInStock()}|"></p>
-                        <p th:text="|Opis: ${product.getDescription()}|"></p>
-
-                    </dd>
-
-                    <div>
-
-                        <a th:href="@{/products/product/{productId}(productId=${product.productId})}" style="text-decoration: none">
-                            <button>
-                                <span>Szczegóły <i class="fa fa-suitcase"></i></span>
-                            </button>
+                    <div class="flip-card" th:each="product : ${products}">
+                        <a th:href="@{/product(productId=${product.productId})}">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img th:src="|${product.getImage()}|" alt="img" style="width:100%;height:auto;">
+                                <p class="productName" th:text="|${product.getName()}|"></p>
+                                <p class="productDesc" th:text="|${product.getCategory()}|"></p>
+                                <p>Szczegóły</p>
+                            </div>
+                            <div class="flip-card-back">
+                                <h3 th:text="|${product.getName()}|"></h3>
+                                <p class="productDesc" th:text="|Dostępne: ${product.getUnitsInStock()} szt.|"></p>
+                                <p th:text="|Cena: ${product.getUnitPrice()} zł|"></p>
+                                <p>Dodaj</p>
+                                <p>Click it for more information</p>
+                            </div>
+                        </div>
                         </a>
-
-                        <a th:href="@{/rest/cart/add/{productId}(productId=${product.productId})}" style="text-decoration: none">
-                            <button>
-                                <span>Dodaj do koszyka -> <i class="fa fa-shopping-cart"></i></span>
-                            </button>
-                        </a>
-
-                        <a th:href="@{/cart}">
-                            <button>
-                                <span>Koszyk <i class="fa fa-shopping-cart"></i> <i class="fa fa-dollar"></i></span>
-                            </button>
-                        </a>
-
-
                     </div>
 
 
+                    <!--/*
+                                        <div>
+
+                                            <a th:href="@{/products/product/{productId}(productId=${product.productId})}" style="text-decoration: none">
+                                                <button>
+                                                    <span>Szczegóły <i class="fa fa-suitcase"></i></span>
+                                                </button>
+                                            </a>
+
+                                            <a th:href="@{/rest/cart/add/{productId}(productId=${product.productId})}" style="text-decoration: none">
+                                                <button>
+                                                    <span>Dodaj do koszyka -> <i class="fa fa-shopping-cart"></i></span>
+                                                </button>
+                                            </a>
+
+                                            <a th:href="@{/cart}">
+                                                <button>
+                                                    <span>Koszyk <i class="fa fa-shopping-cart"></i> <i class="fa fa-dollar"></i></span>
+                                                </button>
+                                            </a>
+
+
+                                        </div>
+
+                       */-->
                 </fieldset>
 
             </div>
@@ -98,12 +103,9 @@
         </div>
 
 
-        <footer>
-
-            <h6>Created and designed by Przemysław Cichy &copy; All rights reserved.</h6>
-
-        </footer>
-
+    <footer>
+        <h6>Created and designed by Przemysław Cichy &copy; All rights reserved.</h6>
+    </footer>
 </main>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

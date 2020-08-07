@@ -69,11 +69,9 @@ public class ProductController {
     }
 
     @GetMapping("product/{productId}")
-    ResponseEntity <Product> getProductById(@PathVariable String productId) {
-
+    ResponseEntity <Product> getProductById(@PathVariable String productId, Model model) {
         logger.info("By ID");
         return ResponseEntity.ok(productService.getProductById(productId));
-
     }
 
     @PostMapping("/addProduct")

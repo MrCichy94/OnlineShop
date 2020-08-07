@@ -53,7 +53,8 @@ public class InMemoryProductRepository implements ProductRepository {
 
     public Product getProductById(String productId) {
 
-        Product productById = null;
+        //for thymeleaf exception changed initializing from null to new Product()
+        Product productById = new Product();
 
         for(Product product : listOfProducts) {
             if(product != null && product.getProductId() != null && product.getProductId().equals(productId)){
