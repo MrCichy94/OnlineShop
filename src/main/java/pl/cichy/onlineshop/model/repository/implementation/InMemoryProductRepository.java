@@ -1,13 +1,9 @@
 package pl.cichy.onlineshop.model.repository.implementation;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Repository;
 import pl.cichy.onlineshop.exception.ProductNotFoundException;
 import pl.cichy.onlineshop.model.Product;
 import pl.cichy.onlineshop.model.repository.ProductRepository;
-
-import org.springframework.data.domain.Pageable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;

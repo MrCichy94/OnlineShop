@@ -4,11 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.cichy.onlineshop.exception.InvalidCartException;
 import pl.cichy.onlineshop.model.Cart;
-import pl.cichy.onlineshop.model.Product;
 import pl.cichy.onlineshop.model.repository.CartRepository;
 import pl.cichy.onlineshop.service.CartService;
-
-import java.util.List;
 
 @Service
 public class CartServiceImpl implements CartService {

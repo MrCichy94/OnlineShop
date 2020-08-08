@@ -1,9 +1,6 @@
 package pl.cichy.onlineshop.service;
 
 import pl.cichy.onlineshop.model.Cart;
-import pl.cichy.onlineshop.model.Product;
-
-import java.util.List;
 
 public interface CartService {
 

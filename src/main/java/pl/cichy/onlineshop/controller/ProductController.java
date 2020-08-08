@@ -7,12 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.cichy.onlineshop.exception.NoProductsFoundUnderCategoryException;
-import pl.cichy.onlineshop.model.Cart;
 import pl.cichy.onlineshop.model.Product;
 import pl.cichy.onlineshop.service.CartService;
 import pl.cichy.onlineshop.service.ProductService;
-
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;

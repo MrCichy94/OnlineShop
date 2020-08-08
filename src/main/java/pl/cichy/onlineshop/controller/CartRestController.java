@@ -2,7 +2,6 @@ package pl.cichy.onlineshop.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -58,7 +57,7 @@ public class CartRestController {
 
     //HERE WAS PUT METHOD - changed to no-value
     @GetMapping(value = "/add/{productId}")
-    @ResponseStatus(value = HttpStatus.RESET_CONTENT)
+    @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void addItem(@PathVariable String productId, HttpServletRequest request) {
         String sessionId = request.getSession(true).getId();
         Cart cart = cartService.read(sessionId);
@@ -71,13 +70,22 @@ public class CartRestController {
             throw new IllegalArgumentException(new ProductNotFoundException(productId));
         }
 
-        cart.addCartItem(new CartItem(product));
-        logger.info("Item added to cart");
-        cartService.update(sessionId, cart);
+        //all this method i'm gonna move on to servis
+        if (product.getUnitsInStock() > 0) {
+            cart.addCartItem(new CartItem(product));
+            product.setUnitsInStock(product.getUnitsInStock() - 1);
+            product.setUnitsInOrder(product.getUnitsInOrder() + 1);
+            logger.info("Item added to cart");
+            cartService.update(sessionId, cart);
+        } else {
+            logger.info("Item can not be added to cart");
+            //need to fix sending answer to user, there is no more product with given id
+        }
+
     }
 
     @GetMapping(value = "/remove/{productId}")
-    @ResponseStatus(value = HttpStatus.RESET_CONTENT)
+    @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void removeItem(@PathVariable String productId, HttpServletRequest request) {
         String sessionId = request.getSession(true).getId();
         Cart cart = cartService.read(sessionId);
@@ -92,6 +100,7 @@ public class CartRestController {
         }
 
         cart.removeCartItem(new CartItem(product));
+        product.setUnitsInStock(product.getUnitsInStock() + product.getUnitsInOrder());
         logger.info("Item removed from cart");
         cartService.update(sessionId, cart);
     }

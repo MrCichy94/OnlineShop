@@ -3,7 +3,6 @@ package pl.cichy.onlineshop.model.repository.implementation;
 import org.springframework.stereotype.Repository;
 import pl.cichy.onlineshop.model.Customer;
 import pl.cichy.onlineshop.model.repository.CustomerRepository;
-
 import java.util.ArrayList;
 import java.util.List;
 

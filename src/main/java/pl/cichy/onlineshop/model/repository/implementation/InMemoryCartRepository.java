@@ -2,12 +2,8 @@ package pl.cichy.onlineshop.model.repository.implementation;
 
 import org.springframework.stereotype.Repository;
 import pl.cichy.onlineshop.model.Cart;
-import pl.cichy.onlineshop.model.Product;
 import pl.cichy.onlineshop.model.repository.CartRepository;
-
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @Repository
