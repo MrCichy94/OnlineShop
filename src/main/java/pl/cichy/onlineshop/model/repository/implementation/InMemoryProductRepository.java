@@ -22,6 +22,7 @@ public class InMemoryProductRepository implements ProductRepository {
         dreamer.setCategory("Koszule męskie");
         dreamer.setManufacturer("RafaellO");
         dreamer.setUnitsInStock(10);
+        dreamer.setUnitsInOrder(0);
         dreamer.setImage("images/photo1.jpg");
 
         Product diana = new Product("P1235","Zestaw 'Diana'", new BigDecimal("149.99"));
@@ -29,6 +30,7 @@ public class InMemoryProductRepository implements ProductRepository {
         diana.setCategory("Koszule damskie");
         diana.setManufacturer("RafaellO");
         diana.setUnitsInStock(4);
+        diana.setUnitsInOrder(0);
         diana.setImage("images/photo2.jpg");
 
         Product elizabeth = new Product("P1236","Zestaw 'Elizabeth'", new BigDecimal("139.99"));
@@ -36,6 +38,7 @@ public class InMemoryProductRepository implements ProductRepository {
         elizabeth.setCategory("Koszule damskie");
         elizabeth.setManufacturer("RafaellO");
         elizabeth.setUnitsInStock(6);
+        elizabeth.setUnitsInOrder(0);
         elizabeth.setImage("images/photo3.jpg");
 
         listOfProducts.add(dreamer);

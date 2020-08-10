@@ -34,7 +34,7 @@
                     <span th:text="|${item.value.getProduct().getUnitPrice()}|"></span> zł
                 </p>
             </td>
-            <td><p th:text="|${item.value.getQuantity()}|"></p> </td>
+            <td><p th:text="|${item.value.getProduct().getUnitsInOrder()}|"></p> </td>
             <td>
                 <p>
                     <span th:text="|${item.value.getTotalPrice()}|"></span> zł
