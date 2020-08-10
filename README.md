@@ -3,6 +3,7 @@
 </a>
 
 (with this button you open the url of my application, this application may need some time to run)
+(starting the app can take 10-30 seconds)
 
 
 ### Only presentation: 
