@@ -16,9 +16,9 @@ public class ShippingDetail implements Serializable {
 
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date shippingDate;
-    private Address shippingAddress;
+    private Adress shippingAdress;
 
     public ShippingDetail() {
-        this.shippingAddress = new Address();
+        this.shippingAdress = new Adress();
     }
 }

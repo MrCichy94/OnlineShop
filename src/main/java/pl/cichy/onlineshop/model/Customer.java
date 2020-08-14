@@ -14,12 +14,12 @@ public class Customer implements Serializable {
     private long noOfOrdersMade;
     private String customerId;
     private static final long serialVersionUID = 2284040482222162898L;
-    private Address billingAddress;
+    private Adress billingAdress;
     private String phoneNumber;
 
     public Customer() {
         super();
-        this.billingAddress = new Address();
+        this.billingAdress = new Adress();
     }
     public Customer(String customerId, String name) {
         this();
