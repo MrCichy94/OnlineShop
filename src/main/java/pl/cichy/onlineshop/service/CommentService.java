@@ -3,19 +3,17 @@ package pl.cichy.onlineshop.service;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import pl.cichy.onlineshop.model.Comment;
+import pl.cichy.onlineshop.model.projection.CommentWriteModel;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface CommentService {
 
-    Optional<Comment> findById(Integer id);
+    Comment addComment(Comment comment);
 
-    Page<Comment> findAll(Pageable page);
+    Comment addComm(CommentWriteModel entity);
 
-    void deleteById(Integer id);
-
-    Comment save (Comment entity);
-
-    boolean existsById(Integer id);
+    List <Comment> readAllComments();
 
 }

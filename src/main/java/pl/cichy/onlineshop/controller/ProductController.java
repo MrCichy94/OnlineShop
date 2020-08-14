@@ -36,6 +36,7 @@ public class ProductController {
     @GetMapping
     public String list(Model model) {
         model.addAttribute("products", productService.readAllProducts());
+        logger.info("Wczytano produkty!");
         return "products";
     }
 

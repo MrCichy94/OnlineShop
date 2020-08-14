@@ -5,34 +5,33 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import pl.cichy.onlineshop.model.Comment;
+import pl.cichy.onlineshop.model.projection.CommentWriteModel;
 import pl.cichy.onlineshop.model.repository.CommentRepository;
+import pl.cichy.onlineshop.model.repository.ProductRepository;
 import pl.cichy.onlineshop.service.CommentService;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
 public class CommentServiceImpl implements CommentService {
 
-    @Autowired
-    private CommentRepository commentRepository;
+    //@Autowired
+    private final CommentRepository commentRepository;
 
-    public Optional<Comment> findById(Integer id) {
-        return commentRepository.findById(id);
+    public CommentServiceImpl(final CommentRepository commentRepository) {
+        this.commentRepository = commentRepository;
     }
 
-    public Page<Comment> findAll(Pageable page) {
-        return commentRepository.findAll(page);
+    public Comment addComment(Comment comment){
+        return commentRepository.addComment(comment);
     }
 
-    public void deleteById(Integer id) {
-        commentRepository.deleteById(id);
+    public List <Comment> readAllComments(){
+        return commentRepository.readAllComments();
     }
 
-    public Comment save(Comment entity) {
-        return commentRepository.save(entity);
-    }
-
-    public boolean existsById(Integer id) {
-        return commentRepository.existsById(id);
+    public Comment addComm(CommentWriteModel toSave) {
+        return commentRepository.addComm(toSave.toComment());
     }
 }

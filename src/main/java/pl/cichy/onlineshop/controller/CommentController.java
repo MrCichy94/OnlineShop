@@ -2,16 +2,17 @@ package pl.cichy.onlineshop.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.cichy.onlineshop.model.Comment;
-import pl.cichy.onlineshop.model.repository.CommentRepository;
+import pl.cichy.onlineshop.model.projection.CommentWriteModel;
 import pl.cichy.onlineshop.service.CommentService;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
@@ -29,23 +30,57 @@ public class CommentController {
         this.commentService = commentService;
     }
 
-    //@GetMapping
-    ResponseEntity<List<Comment>> readAllComments(Pageable page) {
-        logger.info("Custom pageable");
-        return ResponseEntity.ok(commentService.findAll(page).getContent());
+    @GetMapping("/all")
+    ResponseEntity<List<Comment>> readAllComments() {
+        logger.info("Wczytano komentarze");
+        return ResponseEntity.ok(commentService.readAllComments());
     }
 
+
+
+
+
+
+    @PostMapping("/all")
+    ResponseEntity<Comment> createComment(@RequestBody @Valid Comment toAdd){
+        logger.info("Dodano komentarz!");
+        commentService.addComment(toAdd);
+        return ResponseEntity.created(URI.create("/" + toAdd.getId())).body(toAdd);
+    }
+/*
+    @RequestMapping
+    public String addComment(@ModelAttribute("comment") CommentWriteModel current,
+                             BindingResult bindingResult,
+                             Model model)
+    {
+        if (bindingResult.hasErrors()){
+            return "projects";
+        }
+        commentService.addComm(current);
+        model.addAttribute("comment", new CommentWriteModel());
+        model.addAttribute("comments", readAllComments());
+        logger.info("Dodano komentarz!");
+        return "comments";
+    }
+
+ */
+
     @GetMapping
-    public String list(Model model, Pageable page) {
-        model.addAttribute("comments", commentService.findAll(page));
+    public String add(Model model) {
+        model.addAttribute("comments", commentService.readAllComments());
+        model.addAttribute("comment", new Comment());
         return "comments";
     }
 
     @PostMapping
-    ResponseEntity<Comment> createComment(@RequestBody @Valid Comment toAdd){
-        logger.info("Dodano komentarz!");
-        commentService.save(toAdd);
-        return ResponseEntity.created(URI.create("/" + toAdd.getId())).body(toAdd);
+    public String processAdd(@ModelAttribute("comment") @Valid Comment comment, BindingResult bindingResult, Model model){
+        if (bindingResult.hasErrors()){
+            model.addAttribute("comments", commentService.readAllComments());
+            return "comments";
+        }
+        commentService.addComment(comment);
+        model.addAttribute("comments", commentService.readAllComments());
+        return "comments";
     }
 
 }

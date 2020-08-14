@@ -15,7 +15,7 @@
 
 <body>
 <main>
-    <fieldset> <h3>OPINIE - working...</h3>
+    <fieldset> <h3>OPINIE NASZYCH KLIENTÓW</h3>
 
         <fieldset>
             <fieldset th:each="comment : ${comments}">
@@ -24,14 +24,17 @@
             </fieldset>
 
             <fieldset>
-                <form action="#" method="post" th:action="@{/comments}">
+                <form action="#" method="post" th:action="@{/comments}" th:object="${comment}">
                     <legend>Dodaj komentarz</legend>
                     <label>Nick
-                        <input type="text" th:field="*{comments}"/>
+                        <input type="text" th:field="*{name}" />
                     </label>
                     <label>Komentarz
-                        <input type="text" th:field="*{comments}"/>
+                        <input type="text" th:field="*{commText}" />
                     </label>
+                    <div>
+                        <button type="submit" name="addComment">Zostaw komentarz ;)</button>
+                    </div>
                 </form>
             </fieldset>
 
@@ -44,7 +47,14 @@
         </a>
 
     </fieldset>
+
+    <footer>
+        <h6>...podpinanie komentarzy pod bazę danych online + azure...</h6>
+        <h6>Poprawka ta pozwoli na nie znikanie komentarzy wraz z uruchamianiem aplikacji</h6>
+    </footer>
 </main>
+
+
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 

@@ -15,4 +15,5 @@ public interface ProductService {
     List <Product> getProductsByManufacturer(String manufacturer);
 
     Product addProduct(Product product);
+
 }
