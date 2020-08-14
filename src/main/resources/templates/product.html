@@ -26,19 +26,19 @@
             </span>
             </br>
             <span> <p class="descTitle">Kategoria: </p>
-                <p class="title" th:text="|${product.getCategory()}|"></p>
+                <p class="productDesc" th:text="|${product.getCategory()}|"></p>
             </span>
             </br>
             <span> <p class="descTitle">Producent: </p>
-                <p class="title" th:text="|${product.getManufacturer()}|"></p>
+                <p class="productDesc" th:text="|${product.getManufacturer()}|"></p>
             </span>
             </br>
             <span> <p class="descTitle">Dostępnych: </p>
-                <p class="title" th:text="|${product.getUnitsInStock()} szt.|"></p>
+                <p class="productDesc" th:text="|${product.getUnitsInStock()} szt.|"></p>
             </span>
             </br>
             <span> <p class="descTitle">Cena: </p>
-                <p class="title" th:text="|${product.getUnitPrice()} zł|"></p>
+                <p class="productDesc" th:text="|${product.getUnitPrice()} zł|"></p>
             </span>
             <a href="/products" style="text-decoration: none">
                 <button>

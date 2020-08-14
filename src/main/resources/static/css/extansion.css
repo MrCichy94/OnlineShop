@@ -85,13 +85,13 @@ button:hover, a:hover {
 
 .productName {
     font-weight: bold;
-    text-align: left;
+    text-align: center;
     margin: 10px;
 }
 
 .productDesc {
     color: grey;
-    text-align: justify;
+    text-align: center;
     margin: 10px;
 }
 
@@ -99,8 +99,23 @@ button:hover, a:hover {
     color: white;
     font-weight: bold;
     margin: 10px;
+    text-align: center;
 }
 
 .price {
 
 }
+
+.socials {
+    background-color: transparent;
+    width: 21%;
+    height: auto;
+    border: 0.03em solid #f1f1f1;
+    float: left;
+    margin: 1.5%;
+}
+
+.socials:hover {
+    opacity: 0.7;
+}
+

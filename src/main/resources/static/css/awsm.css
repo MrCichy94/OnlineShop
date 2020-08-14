@@ -158,6 +158,7 @@ section + section{
 h1, h2, h3, h4, h5, h6{
     margin:1.25em 0 0;
     line-height:1.2;
+    text-align: center;
 }
 h1:hover > a[href^="#"][id]:empty, h1:focus > a[href^="#"][id]:empty, h2:hover > a[href^="#"][id]:empty, h2:focus > a[href^="#"][id]:empty, h3:hover > a[href^="#"][id]:empty, h3:focus > a[href^="#"][id]:empty, h4:hover > a[href^="#"][id]:empty, h4:focus > a[href^="#"][id]:empty, h5:hover > a[href^="#"][id]:empty, h5:focus > a[href^="#"][id]:empty, h6:hover > a[href^="#"][id]:empty, h6:focus > a[href^="#"][id]:empty{
     opacity:1;
