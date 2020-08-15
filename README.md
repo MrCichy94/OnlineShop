@@ -3,12 +3,12 @@
 </a>
 
 (with this button you open the url of my application, this application may need some time to run)
-(starting the app can take 10-30 seconds)
+(starting the app can take max 10 seconds)
 
 
 ### Only presentation: 
 
-###### I'm working on a project. This is my own project made from scratch on the basis of the previous jsp made in the old technology. Ultimately, it will be a clothes store. I was based on ready-made entities from the previous project, which I will gradually adapt to the needs of "clothes"
+###### I'm working on a project. This is my own project made from scratch. I still need a long time to finish. I am currently working on changing the data storage model in the application. It's best to see the effects by clicking the "Deploy" button.
 
 ### Technology used: 
 * JAVA+SPRING (backend)
@@ -17,11 +17,14 @@
 
 ### About the application
 
-#### Index
-![Index](./screens/work1.png)
+#### Products
+![Products](./screens/screen1.png)
 
-#### Main endpoint with products
-![Main endpoint with products](./screens/w2.png)
+#### Cart
+![Cart](./screens/screen2.png)
 
-#### Cart endpoint
-![Cart endpoint](./screens/w3.png)
+#### Comment
+![Comment](./screens/screen3.png)
+
+#### Contact
+![Contact](./screens/screen4.png)
