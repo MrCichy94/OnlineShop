@@ -4,6 +4,7 @@
     text-align: center;
     width: 25%;
     height: auto;
+    font-size: 1.125rem;
 }
 
 .menu:hover
@@ -14,12 +15,12 @@
 
 .flip-card {
     background-color: transparent;
-    width: 30%;
-    height: 300px;
-    border: 0.03em solid #f1f1f1;
+    width: 11.4rem;
+    height: 18.3rem;
+    border: 0.03rem solid #f1f1f1;
     perspective: 1000px; /* Remove this if you don't want the 3D effect */
     float: left;
-    margin: 1.5%;
+    margin: 0.5rem;
 }
 
 /* This container is needed to position the front and back side */
@@ -62,8 +63,8 @@
 
 .title {
     color: grey;
-    font-size: 18px;
-    margin: 10px;
+    font-size: 1.125rem;
+    margin: 0.5rem;
 }
 
 button {
@@ -76,7 +77,7 @@ button {
     text-align: center;
     cursor: pointer;
     width: 100%;
-    font-size: 18px;
+    font-size: 1.125rem;
 }
 
 button:hover, a:hover {
@@ -86,19 +87,19 @@ button:hover, a:hover {
 .productName {
     font-weight: bold;
     text-align: center;
-    margin: 10px;
+    margin: 0.5rem;
 }
 
 .productDesc {
     color: grey;
     text-align: center;
-    margin: 10px;
+    margin: 0.5rem;
 }
 
 .descTitle {
     color: white;
     font-weight: bold;
-    margin: 10px;
+    margin: 0.5rem;
     text-align: center;
 }
 
@@ -110,9 +111,9 @@ button:hover, a:hover {
     background-color: transparent;
     width: 21%;
     height: auto;
-    border: 0.03em solid #f1f1f1;
+    border: 0.03rem solid #f1f1f1;
     float: left;
-    margin: 1.5%;
+    margin: 0.5rem;
 }
 
 .socials:hover {
