@@ -41,7 +41,7 @@
                 </p>
             </td>
             <td>
-                <a th:href="@{rest/cart/remove/{productId}(productId=${item.value.getProduct().getProductId()})}">
+                <a th:href="@{/cart/{productId}(productId=${item.value.getProduct().getProductId()})}">
                  <span>Usuń <i class="fa fa-remove"></i></span>
                 </a>
             </td>
