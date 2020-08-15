@@ -2,13 +2,10 @@ package pl.cichy.onlineshop.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.view.RedirectView;
 import pl.cichy.onlineshop.exception.ProductNotFoundException;
 import pl.cichy.onlineshop.model.Cart;
 import pl.cichy.onlineshop.model.CartItem;
@@ -31,7 +28,7 @@ public class CartController {
         this.productService = productService;
     }
 
-    //@GetMapping("/{cartId}")
+    //@GetMapping("/{cartId}") NEED FOR JS+REACT FRONT
     ResponseEntity <Cart> readCart(@PathVariable("cartId") String cartId) {
         logger.info("Cart found");
         return ResponseEntity.ok(cartService.read(cartId));
@@ -52,15 +49,7 @@ public class CartController {
         return "cart";
     }
 
-    //@RequestMapping(value = "/{cartId}", method = RequestMethod.GET)
-
-    public String getCart2(@PathVariable(value = "cartId") String cartId, Model model) {
-        model.addAttribute("cart", cartService.read(cartId));
-        return "cart";
-    }
-
-
-    //REMOVING INTEM FROM CART - 2 controllers! Main remove + helping redirecting to solve problem in mobile SAFARI (iphone)
+    //REMOVING ITEM FROM CART - 2 controllers! Main remove + helping redirecting to solve problem in mobile SAFARI (iphone)
     @RequestMapping("/{productId}")
     public String removeItem(@PathVariable String productId, HttpServletRequest request, Model model) {
         String sessionId = request.getSession(true).getId();
