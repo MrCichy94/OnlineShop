@@ -12,7 +12,6 @@ import pl.cichy.onlineshop.model.CartItem;
 import pl.cichy.onlineshop.model.Product;
 import pl.cichy.onlineshop.service.CartService;
 import pl.cichy.onlineshop.service.ProductService;
-
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
