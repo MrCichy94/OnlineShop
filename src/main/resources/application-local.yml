@@ -1,9 +1,6 @@
-spring:
-  h2.console:
-    enabled: true
-    path: '/console'
+
   datasource:
-    url: 'jdbc:h2:file:C:/Work/online-shop/online-shop-db'
+    url: dbUrl
   jpa:
     hibernate:
       ddl-auto: update
