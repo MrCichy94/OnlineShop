@@ -3,14 +3,18 @@ package pl.cichy.onlineshop.configuration;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
+import javax.validation.Validator;
 import java.net.URI;
 import java.net.URISyntaxException;
+
 
 //@Configuration
 public class MainConfig {
 
-    //@Bean
+    /*
+    @Bean
     public BasicDataSource dataSource() throws URISyntaxException {
         URI dbUri = new URI(System.getenv("DATABASE_URL"));
 
@@ -25,5 +29,7 @@ public class MainConfig {
 
         return basicDataSource;
     }
+
+     */
 
 }

@@ -120,3 +120,23 @@ button:hover, a:hover {
     opacity: 0.7;
 }
 
+.Bd {
+    border: solid 1px black;
+}
+
+.C\(red\) {
+    color: red;
+}
+
+.Bdc\(red\) {
+    border-color: red !important;
+}
+
+.P\(0\) {
+    padding: 0;
+}
+
+.P\(10px\) {
+    padding: 10px;
+}
+

@@ -24,6 +24,8 @@ public class OnlineShopApplication {
 		return new LocalValidatorFactoryBean();
 	}
 
+	//connection to HerokuPostgreSQL credentials (auto-mode heroku rulezzz)
+	//should be in config class like other beans
 	private static Connection getConnection() throws URISyntaxException, SQLException {
 		URI dbUri = new URI(System.getenv("DATABASE_URL"));
 
