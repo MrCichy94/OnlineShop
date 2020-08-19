@@ -3,16 +3,13 @@ package pl.cichy.onlineshop.model;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
-import org.springframework.format.annotation.NumberFormat;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import java.math.BigDecimal;
-import java.util.Map;
+
 
 @Getter
 @Setter
@@ -33,9 +30,9 @@ public class NotRegisteredOrder {
     private String lastName;
 
     //Adress
-    @NotBlank(message = "Uzupełnij swoje dane: Numer lokalu")
+    @NotBlank(message = "Uzupełnij swoje dane: Numer klatki")
     private String placeNo;
-    @NotBlank(message = "Uzupełnij swoje dane: Numer drzwi")
+    @NotBlank(message = "Uzupełnij swoje dane: Numer mieszkania")
     private String doorNo;
     @NotBlank(message = "Uzupełnij swoje dane: Ulica")
     private String streetName;
