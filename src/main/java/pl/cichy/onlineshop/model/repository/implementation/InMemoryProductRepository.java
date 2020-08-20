@@ -21,7 +21,7 @@ public class InMemoryProductRepository implements ProductRepository {
         dreamer.setDescription("Piękna i elegancka koszula męska, zdobiona czarnymi podszewkami kołnierzyka i mankietów, oraz czarnymi guzikami. W zestawie ze złotymi reniferami dodającymi smaku i kunsztu całości.");
         dreamer.setCategory("Koszule męskie");
         dreamer.setManufacturer("RafaellO");
-        dreamer.setUnitsInStock(10);
+        dreamer.setUnitsInStock(100);
         dreamer.setUnitsInOrder(0);
         dreamer.setImage("images/photo1.jpg");
 
@@ -29,7 +29,7 @@ public class InMemoryProductRepository implements ProductRepository {
         diana.setDescription("Piękna i elegancka koszula damska, zdobiona czarnymi podszewkami kołnierzyka i mankietów, oraz czarnymi guzikami. W zestawie z czarną kameą, a w niej mieniącym się diamentem.");
         diana.setCategory("Koszule damskie");
         diana.setManufacturer("RafaellO");
-        diana.setUnitsInStock(4);
+        diana.setUnitsInStock(40);
         diana.setUnitsInOrder(0);
         diana.setImage("images/photo2.jpg");
 
@@ -37,7 +37,7 @@ public class InMemoryProductRepository implements ProductRepository {
         elizabeth.setDescription("Piękna i elegancka koszula damska, zdobiona czarnymi podszewkami kołnierzyka i mankietów, oraz czarnymi guzikami. W zestawie z czarną kokardą wypełnioną królewską perłą.");
         elizabeth.setCategory("Koszule damskie");
         elizabeth.setManufacturer("RafaellO");
-        elizabeth.setUnitsInStock(6);
+        elizabeth.setUnitsInStock(60);
         elizabeth.setUnitsInOrder(0);
         elizabeth.setImage("images/photo3.jpg");
 
