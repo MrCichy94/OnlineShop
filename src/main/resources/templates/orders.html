@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online-Shop: Your order</title>
+    <link rel="stylesheet" href="css/awsm.css">
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="css/extansion.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+    <script src="all.js"></script>
+</head>
+
+<body>
+<main>
+
+    <fieldset>
+
+        <h5>Zrealizowane zamówienia ;)</h5>
+
+        <fieldset>
+            <legend>ZAMÓWIENIA</legend>
+            <fieldset th:each="order : ${orders}">
+                <p>
+                    <span style="font-weight: normal" th:text="'Zamówił/a:' "></span>
+                    <span style="font-weight: normal" th:text="|${order.getName()}|"></span><br>
+                    <span style="font-weight: normal" th:text="'Wartość zamówienia:' "></span>
+                    <span style="font-weight: normal" th:text="|${order.getOrderPrice()}|"></span>
+                    <span style="font-weight: normal" th:text="zł"></span>
+                </p>
+            </fieldset>
+        </fieldset>
+
+        <h6>DZIĘKUJEMY! :)</h6>
+
+
+        <a href="/products" style="text-decoration: none">
+            <button>
+                <span><i class="fa fa-hand-o-left"></i> Powrót do zakupów </span>
+            </button>
+        </a>
+
+    </fieldset>
+
+
+
+</main>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+<script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>

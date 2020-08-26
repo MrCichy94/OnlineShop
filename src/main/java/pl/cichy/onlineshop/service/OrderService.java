@@ -1,5 +1,6 @@
 package pl.cichy.onlineshop.service;
 
+import pl.cichy.onlineshop.model.NotRegisteredOrder;
 import pl.cichy.onlineshop.model.Order;
 
 public interface OrderService {

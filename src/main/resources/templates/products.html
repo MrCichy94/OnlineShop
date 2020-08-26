@@ -20,9 +20,11 @@
             <h1>Royal Cloth</h1>
             <h6>"Elegancja to jedyne piękno, które nigdy nie zniknie" - Audrey Hepburn</h6>
 
+            <a th:href="@{/orders}" style="text-decoration: none">
             <div>
-                <h5 class="menu">PRODUKTY <i class="fa fa-crosshairs"></i></h5>
+                <h5 class="menu">ZAMÓWIENIA <i class="fa fa-crosshairs"></i></h5>
             </div>
+            </a>
 
             <a th:href="@{/comments}" style="text-decoration: none">
                 <div>
@@ -111,7 +113,8 @@
 
 
     <footer>
-        <h6>18.08 - dodano walidację zamówienia (np puste pole).</h6>
+        <h6>26.08 - dodano informację zwrotną zamówienia.</h6>
+        <h6>26.08 - dodano menu ZAMÓWIENIA - listę z DB.</h6>
         <h6>Created and designed by Przemysław Cichy &copy; All rights reserved.</h6>
     </footer>
 </main>

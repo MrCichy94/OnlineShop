@@ -17,7 +17,45 @@
 
     <fieldset>
 
-        <h6>in progress...</h6>
+        <h5>ZŁOŻONE ZAMÓWIENIE!</h5>
+
+        <fieldset>
+            <legend>Dane wysyłkowe:</legend>
+            <p style="font-weight: bold"> Odbiorca:<br>
+                <span style="font-weight: normal" th:text="|${NROrder.get().getName()} ${NROrder.get().getLastName()}|"></span>
+            </p>
+            <p style="font-weight: bold"> Adres:<br>
+                <span style="font-weight: normal" th:text="|${NROrder.get().getStreetName()} ${NROrder.get().getPlaceNo()}|"></span><br>
+                <span style="font-weight: normal" th:text="|${NROrder.get().getCity()} ${NROrder.get().getZipCode()}|"></span><br>
+                <span style="font-weight: normal" th:text="|${NROrder.get().getState()} ${NROrder.get().getCountry()}|"></span>
+            </p>
+
+        </fieldset>
+
+        <fieldset>
+            <legend>Do zapłaty:</legend>
+                <p> Do zapłaty:
+                    <span th:text="|${cart.getGrandTotal()}|"></span> zł
+                </p>
+        </fieldset>
+
+        <fieldset>
+            <h6>Uwaga! Kliknięcie spowoduje wycofanie zamówienia!</h6>
+            <h6>...working...</h6>
+            <a href="#" style="text-decoration: none">
+                <button>
+                    <span><i class="fa fa-crosshairs"></i> Usuń zamówienie </span>
+                </button>
+            </a>
+
+            <a href="#" style="text-decoration: none">
+                <button>
+                    <span><i class="fa fa-dollar"></i> Zapłać teraz </span>
+                </button>
+            </a>
+        </fieldset>
+
+
 
         <a href="/products" style="text-decoration: none">
             <button>

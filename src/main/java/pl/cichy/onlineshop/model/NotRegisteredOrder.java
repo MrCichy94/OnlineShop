@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import java.math.BigDecimal;
 
 
 @Getter
@@ -46,13 +47,13 @@ public class NotRegisteredOrder {
     private String zipCode;
 
     //Cart
-    private Cart cart;
+    private BigDecimal orderPrice;
 
     //Constructors
     public NotRegisteredOrder() {
     }
 
-    public NotRegisteredOrder(String name, String lastName, String placeNo, String doorNo, String streetName, String city, String state, String country, String zipCode, Cart cart) {
+    public NotRegisteredOrder(String name, String lastName, String placeNo, String doorNo, String streetName, String city, String state, String country, String zipCode, BigDecimal orderPrice) {
         this.name = name;
         this.lastName = lastName;
         this.placeNo = placeNo;
@@ -62,7 +63,7 @@ public class NotRegisteredOrder {
         this.state = state;
         this.country = country;
         this.zipCode = zipCode;
-        this.cart = cart;
+        this.orderPrice = orderPrice;
     }
 
     //methods

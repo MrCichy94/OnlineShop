@@ -1,16 +1,16 @@
 package pl.cichy.onlineshop.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.cichy.onlineshop.model.Cart;
 import pl.cichy.onlineshop.model.NotRegisteredOrder;
-import pl.cichy.onlineshop.model.repository.CartRepository;
 import pl.cichy.onlineshop.service.CartService;
+import pl.cichy.onlineshop.service.NotRegisteredOrderService;
 import pl.cichy.onlineshop.service.OrderService;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,12 +21,14 @@ import javax.validation.Valid;
 @RequestMapping("/order")
 public class OrderController {
 
-
+    private static final Logger logger = LoggerFactory.getLogger(OrderController.class);
     private final OrderService orderService;
+    private final NotRegisteredOrderService notRegisteredOrderService;
     private final CartService cartService;
 
-    public OrderController(final OrderService orderService, CartService cartService) {
+    public OrderController(final OrderService orderService, final NotRegisteredOrderService notRegisteredOrderService, final CartService cartService) {
         this.orderService = orderService;
+        this.notRegisteredOrderService = notRegisteredOrderService;
         this.cartService = cartService;
     }
 
@@ -56,7 +58,7 @@ public class OrderController {
     public String showOrderInfo(@Valid @ModelAttribute("currentOrder") NotRegisteredOrder notRegisteredOrder,
                                 BindingResult bindingResult,
                                 HttpServletRequest request,
-                                Model model) {
+                                Model model, Pageable page) {
         {
 
             String sessionId = request.getSession(true).getId();
@@ -71,7 +73,28 @@ public class OrderController {
                 model.addAttribute("cart", cartService.read(sessionId));
                 return "orderform";
             }
+            notRegisteredOrder.setOrderPrice(cartService.read(sessionId).getGrandTotal());
+            notRegisteredOrderService.save(notRegisteredOrder);
+            logger.info("Not registered order saved!");
+            model.addAttribute("cart", cartService.read(sessionId));
+            model.addAttribute("NROrder", notRegisteredOrderService.findById(notRegisteredOrder.getId()));
             return "orderinfo";
         }
     }
+
+    /*
+    //PROBLEM WITH ID GENERATOR -TODO
+    @GetMapping("/delete")
+    public String deleteOrder(NotRegisteredOrder notRegisteredOrder) {
+
+        if (notRegisteredOrderService.existsById(notRegisteredOrder.getId()))
+        {
+            notRegisteredOrderService.deleteById(notRegisteredOrder.getId());
+            logger.info("Order removed from DB");
+        }
+        return "redirect:/products";
+    }
+     */
+
+
 }

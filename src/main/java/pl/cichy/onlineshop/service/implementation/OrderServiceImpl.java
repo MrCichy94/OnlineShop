@@ -1,6 +1,7 @@
 package pl.cichy.onlineshop.service.implementation;
 
 import org.springframework.stereotype.Service;
+import pl.cichy.onlineshop.model.NotRegisteredOrder;
 import pl.cichy.onlineshop.model.Order;
 import pl.cichy.onlineshop.model.Product;
 import pl.cichy.onlineshop.model.repository.OrderRepository;
@@ -39,4 +40,5 @@ public class OrderServiceImpl implements OrderService {
         cartService.delete(order.getCart().getCartId());
         return orderId;
     }
+
 }
