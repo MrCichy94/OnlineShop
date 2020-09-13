@@ -44,6 +44,7 @@ public class ProductController {
         logger.info("Wczytano produkty!");
         Tick current = new Tick();
         tickService.save(current);
+        logger.info("Zapisano ruch!");
         return "royals";
     }
 
