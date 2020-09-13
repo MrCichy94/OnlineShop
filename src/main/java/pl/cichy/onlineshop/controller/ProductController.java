@@ -8,8 +8,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.cichy.onlineshop.exception.NoProductsFoundUnderCategoryException;
 import pl.cichy.onlineshop.model.Product;
+import pl.cichy.onlineshop.model.Tick;
 import pl.cichy.onlineshop.service.CartService;
 import pl.cichy.onlineshop.service.ProductService;
+import pl.cichy.onlineshop.service.TickService;
+
 import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
@@ -21,10 +24,12 @@ public class ProductController {
     private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
     private final ProductService productService;
     private final CartService cartService;
+    private final TickService tickService;
 
-    public ProductController(final ProductService productService, final CartService cartService) {
+    public ProductController(final ProductService productService, final CartService cartService, final TickService tickService) {
         this.productService = productService;
         this.cartService = cartService;
+        this.tickService = tickService;
     }
 
     //@GetMapping(params = {"!sort", "!page", "!size"})
@@ -37,7 +42,9 @@ public class ProductController {
     public String list(Model model) {
         model.addAttribute("products", productService.readAllProducts());
         logger.info("Wczytano produkty!");
-        return "products";
+        Tick current = new Tick();
+        tickService.save(current);
+        return "royals";
     }
 
     @GetMapping("category/{category}")
