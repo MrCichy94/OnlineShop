@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>Product Card UI Design</title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -57,13 +57,13 @@
 
                 <div class="carousel">
 
-                    <div class="carousel-item">
+                    <div class="carousel-item" th:each="item : ${items}">
                         <div class="card">
                             <div class="imgBx">
-                                <img src="images/single/gotowy_1.png">
+                                <img th:src="|${item.getImage()}|">
                             </div>
                             <div class="contentBx">
-                                <h2>item_name</h2>
+                                <h2 th:text="|${item.getName()}|"></h2>
                                 <div class="size">
                                     <h3>size :</h3>
                                     <span>1</span>
@@ -77,107 +77,10 @@
                                     <span></span>
                                     <span></span>
                                 </div>
-                                <a href="#">Buy Now!</a>
+                                <a th:href="@{/product(itemId = ${item.productId})}">Buy Now!</a>
                             </div>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <div class="card">
-                            <div class="imgBx">
-                                <img src="images/single/gotowy_2.png">
-                            </div>
-                            <div class="contentBx">
-                                <h2>item_name</h2>
-                                <div class="size">
-                                    <h3>size :</h3>
-                                    <span>1</span>
-                                    <span>2</span>
-                                    <span>3</span>
-                                    <span>4</span>
-                                </div>
-                                <div class="color">
-                                    <h3>color :</h3>
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                                <a href="#">Buy Now!</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="card">
-                            <div class="imgBx">
-                                <img src="images/single/gotowy_3.png">
-                            </div>
-                            <div class="contentBx">
-                                <h2>item_name</h2>
-                                <div class="size">
-                                    <h3>size :</h3>
-                                    <span>1</span>
-                                    <span>2</span>
-                                    <span>3</span>
-                                    <span>4</span>
-                                </div>
-                                <div class="color">
-                                    <h3>color :</h3>
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                                <a href="#">Buy Now!</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="card">
-                            <div class="imgBx">
-                                <img src="images/single/gotowy_4.png">
-                            </div>
-                            <div class="contentBx">
-                                <h2>item_name</h2>
-                                <div class="size">
-                                    <h3>size :</h3>
-                                    <span>1</span>
-                                    <span>2</span>
-                                    <span>3</span>
-                                    <span>4</span>
-                                </div>
-                                <div class="color">
-                                    <h3>color :</h3>
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                                <a href="#">Buy Now!</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="card">
-                            <div class="imgBx">
-                                <img src="images/single/gotowy_5.png">
-                            </div>
-                            <div class="contentBx">
-                                <h2>item_name</h2>
-                                <div class="size">
-                                    <h3>size :</h3>
-                                    <span>1</span>
-                                    <span>2</span>
-                                    <span>3</span>
-                                    <span>4</span>
-                                </div>
-                                <div class="color">
-                                    <h3>color :</h3>
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                                <a href="#">Buy Now!</a>
-                            </div>
-                        </div>
-                    </div>
-
 
                 </div>
             </section>
@@ -203,13 +106,13 @@
 
                 <div class="carousel">
 
-                    <div class="carousel-item">
+                    <div class="carousel-item" th:each="product : ${products}">
                         <div class="card">
                             <div class="imgBxCar2">
-                                <img src="images/set/photo1.jpg">
+                                <img th:src="|${product.getImage()}|">
                             </div>
                             <div class="contentBxCar2">
-                                <h2>set_name</h2>
+                                <h2 th:text="|${product.getName()}|"></h2>
                                 <div class="size">
                                     <h3>size :</h3>
                                     <span>XS</span>
@@ -217,83 +120,10 @@
                                     <span>M</span>
                                     <span>L</span>
                                 </div>
-                                <a href="#">Buy Now!</a>
+                                <a th:href="@{/product(productId=${product.productId})}">Buy Now!</a>
                             </div>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <div class="card">
-                            <div class="imgBxCar2">
-                                <img src="images/set/photo2.jpg">
-                            </div>
-                            <div class="contentBxCar2">
-                                <h2>set_name</h2>
-                                <div class="size">
-                                    <h3>size :</h3>
-                                    <span>XS</span>
-                                    <span>S</span>
-                                    <span>M</span>
-                                    <span>L</span>
-                                </div>
-                                <a href="#">Buy Now!</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="card">
-                            <div class="imgBxCar2">
-                                <img src="images/set/photo3.jpg">
-                            </div>
-                            <div class="contentBxCar2">
-                                <h2>set_name</h2>
-                                <div class="size">
-                                    <h3>size :</h3>
-                                    <span>XS</span>
-                                    <span>S</span>
-                                    <span>M</span>
-                                    <span>L</span>
-                                </div>
-                                <a href="#">Buy Now!</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="card">
-                            <div class="imgBxCar2">
-                                <img src="images/set/photo4.jpg">
-                            </div>
-                            <div class="contentBxCar2">
-                                <h2>set_name</h2>
-                                <div class="size">
-                                    <h3>size :</h3>
-                                    <span>XS</span>
-                                    <span>S</span>
-                                    <span>M</span>
-                                    <span>L</span>
-                                </div>
-                                <a href="#">Buy Now!</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="card">
-                            <div class="imgBxCar2">
-                                <img src="images/set/photo5.jpg">
-                            </div>
-                            <div class="contentBxCar2">
-                                <h2>set_name</h2>
-                                <div class="size">
-                                    <h3>size :</h3>
-                                    <span>XS</span>
-                                    <span>S</span>
-                                    <span>M</span>
-                                    <span>L</span>
-                                </div>
-                                <a href="#">Buy Now!</a>
-                            </div>
-                        </div>
-                    </div>
-
 
                 </div>
 

@@ -40,6 +40,7 @@ public class ProductController {
     //think about both!
     @GetMapping
     public String list(Model model) {
+        model.addAttribute("items", productService.readAllItems());
         model.addAttribute("products", productService.readAllProducts());
         logger.info("Wczytano produkty!");
         Tick current = new Tick();
@@ -78,6 +79,12 @@ public class ProductController {
     ResponseEntity <Product> getProductById(@PathVariable String productId, Model model) {
         logger.info("By ID");
         return ResponseEntity.ok(productService.getProductById(productId));
+    }
+
+    @GetMapping("product/{itemId}")
+    ResponseEntity <Product> getItemById(@PathVariable String itemId, Model model) {
+        logger.info("By ID");
+        return ResponseEntity.ok(productService.getItemById(itemId));
     }
 
     @PostMapping("/addProduct")
