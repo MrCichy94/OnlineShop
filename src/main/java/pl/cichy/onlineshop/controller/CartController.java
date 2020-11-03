@@ -59,6 +59,7 @@ public class CartController {
         }
 
         Product product;
+        //troll version to change, by 'category' use it
         if(productId.charAt(0)=='P') {
             product = productService.getProductById(productId);
         } else {
