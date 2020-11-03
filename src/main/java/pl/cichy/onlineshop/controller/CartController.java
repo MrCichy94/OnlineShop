@@ -58,7 +58,13 @@ public class CartController {
             cart = cartService.create(new Cart(sessionId));
         }
 
-        Product product = productService.getProductById(productId);
+        Product product;
+        if(productId.charAt(0)=='P') {
+            product = productService.getProductById(productId);
+        } else {
+            product = productService.getItemById(productId);
+        }
+
         if (product == null) {
             throw new IllegalArgumentException(new ProductNotFoundException(productId));
         }
