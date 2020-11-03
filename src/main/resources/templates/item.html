@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Online-Shop: Detail</title>
+    <link rel="stylesheet" href="css/awsm.css">
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="css/extansion.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+    <script src="all.js"></script>
+</head>
+
+<body>
+<main>
+    <fieldset>
+        <h3>SZCZEGÓŁY</h3>
+        <fieldset>
+            <p class="productName" th:text="|${product.getName()}|"></p>
+            <img th:src="|${product.getImage()}|" alt="img">
+            </br>
+            <span> <p class="descTitle">Opis produktu: </p>
+                <p class="productDesc" th:text="|${product.getDescription()}|"></p>
+            </span>
+            </br>
+            <span> <p class="descTitle">Kategoria: </p>
+                <p class="productDesc" th:text="|${product.getCategory()}|"></p>
+            </span>
+            </br>
+            <span> <p class="descTitle">Producent: </p>
+                <p class="productDesc" th:text="|${product.getManufacturer()}|"></p>
+            </span>
+            </br>
+            <span> <p class="descTitle">Dostępnych: </p>
+                <p class="productDesc" th:text="|${product.getUnitsInStock()} szt.|"></p>
+            </span>
+            </br>
+            <span> <p class="descTitle">Cena: </p>
+                <p class="productDesc" th:text="|${product.getUnitPrice()} zł|"></p>
+            </span>
+            <a href="/products" style="text-decoration: none">
+                <button>
+                    <span><i class="fa fa-hand-o-left"></i> Powrót do zakupów </span>
+                </button>
+            </a>
+
+            <a th:href="@{/cart/ad/{productId}(productId=${product.productId})}" style="text-decoration: none">
+                <button>
+                    <span>Dodaj do koszyka -> <i class="fa fa-shopping-cart"></i></span>
+                </button>
+            </a>
+
+            <a th:href="@{/cart}">
+                <button>
+                    <span>Koszyk <i class="fa fa-shopping-cart"></i> <i class="fa fa-dollar"></i></span>
+                </button>
+            </a>
+        </fieldset>
+    </fieldset>
+
+
+</main>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+<script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>

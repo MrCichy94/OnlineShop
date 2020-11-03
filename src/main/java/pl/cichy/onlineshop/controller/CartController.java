@@ -90,7 +90,7 @@ public class CartController {
 
     //ADDING ITEM TO CART
     @RequestMapping(value = "/add/{productId}")
-    public String addItem(@PathVariable String productId, HttpServletRequest request, Model model) {
+    public String addProduct(@PathVariable String productId, HttpServletRequest request, Model model) {
         String sessionId = request.getSession(true).getId();
         Cart cart = cartService.read(sessionId);
         if (cart == null) {
@@ -114,6 +114,33 @@ public class CartController {
             //need to fix sending answer to user, there is no more product with given id
         }
         return "redirect:/cart";
+    }
 
+    //ADDING ITEM TO CART
+    @RequestMapping(value = "/ad/{itemId}")
+    public String addItem(@PathVariable String itemId, HttpServletRequest request, Model model) {
+        String sessionId = request.getSession(true).getId();
+        Cart cart = cartService.read(sessionId);
+        if (cart == null) {
+            cart = cartService.create(new Cart(sessionId));
+        }
+
+        Product item = productService.getItemById(itemId);
+        if (item == null) {
+            throw new IllegalArgumentException(new ProductNotFoundException(itemId));
+        }
+
+        //all this method i'm gonna move on to servis
+        if (item.getUnitsInStock() > 0) {
+            cart.addCartItem(new CartItem(item));
+            item.setUnitsInStock(item.getUnitsInStock() - 1);
+            item.setUnitsInOrder(item.getUnitsInOrder() + 1);
+            logger.info("Item added to cart");
+            cartService.update(sessionId, cart);
+        } else {
+            logger.info("Item can not be added to cart");
+            //need to fix sending answer to user, there is no more product with given id
+        }
+        return "redirect:/cart";
     }
 }

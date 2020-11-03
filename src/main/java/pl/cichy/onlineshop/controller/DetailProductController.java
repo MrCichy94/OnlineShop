@@ -29,7 +29,7 @@ public class DetailProductController {
     @RequestMapping(params = "itemId")
     public String getByItemId(@RequestParam String itemId, Model model){
         model.addAttribute("product", productService.getItemById(itemId));
-        return "product";
+        return "item";
     }
 
 }
