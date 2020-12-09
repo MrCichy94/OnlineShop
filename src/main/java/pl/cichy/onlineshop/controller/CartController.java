@@ -27,7 +27,7 @@ public class CartController {
         this.productService = productService;
     }
 
-    //@GetMapping("/{cartId}") NEED FOR JS+REACT FRONT
+    //@GetMapping("/{cartId}") NEED FOR JS+REACT FRONT _testgita_
     ResponseEntity <Cart> readCart(@PathVariable("cartId") String cartId) {
         logger.info("Cart found");
         return ResponseEntity.ok(cartService.read(cartId));
